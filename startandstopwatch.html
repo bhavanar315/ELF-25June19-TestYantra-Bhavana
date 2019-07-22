@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>stopwatch</title>
+</head>
+<script
+    type="text/javascript"> var c = 0 
+    var t 
+    function stopCount() { 
+        clearTimeout(t) 
+        } 
+        function timedCount() { 
+            document.getElementById('txt').value = c 
+            c = c + 1 
+            if (c == 61) 
+            { alert("time over") 
+            stopcount() 
+            } 
+            t = setTimeout("timedCount()", 1000) } 
+</script>
+
+<body>
+    <center>
+        <form> <input type="text" id="txt"> 
+            <input type="button" value="Start stopwatch" onClick="timedCount()">
+            <p>Click on the Start button above to start the stopwatch.</p>
+        </form>
+        <center>
+</body>
+
+</html>
