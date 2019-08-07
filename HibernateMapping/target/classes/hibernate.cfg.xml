@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernatemapping_db</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.pool_size">1</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <mapping class="com.tyss.HibernateMapping.onetoone.dto.EmpolyeeInfoBean"/>
+        <mapping class="com.tyss.HibernateMapping.onetoone.dto.EmployeeOtherInfoBean"/>
+        <mapping class="com.tyss.HibernateMapping.manytoone.dto.EmployeeAddressInfoBean"/>
+        <mapping class="com.tyss.HibernateMapping.manytoone.dto.EmployeeEducationInfoBean"/>
+        <mapping class="com.tyss.HibernateMapping.manytoone.dto.EmployeeExperienceInfoBean"/>
+        <mapping class="com.tyss.HibernateMapping.manytomany.dto.TrainingInfoBean"/>
+        <mapping class="com.tyss.HibernateMapping.dto.DepartmentInfoBean"/>
+        <mapping class="com.tyss.HibernateMapping.dto.BidirectionalMappingBean"/> 
+    </session-factory>
+</hibernate-configuration>
