@@ -1,0 +1,76 @@
+<html>
+<head>
+    <title> JavaScript Stop Watch </title>
+    <style text="text/css"> </style>
+    <script type="text/javascript"> </script>
+    <style>
+        #stopWatch { width: 280px; 
+            height: auto; 
+            text-align: center; 
+            display: block; 
+            padding: 5px; margin: 0 auto; 
+        } 
+        #timer, #fulltime {
+             width: auto; 
+             height: auto; 
+             padding: 10px; 
+             font-weight: bold; 
+             font-family: tahoma; 
+             display: block; 
+             border: 1px solid #eee; 
+             text-align: center; 
+             box-shadow: 0 0 5px #ccc; 
+             background: #fbfbf0; 
+             color: darkblue; 
+             border-bottom:4px solid darkgrey; 
+            } 
+            button { 
+                cursor: pointer; 
+                font-weight: 700; 
+            } 
+            #fulltime { 
+                display:none; 
+                font-size:16px; 
+                font-weight:bold; 
+            }
+            </style>
+</head>
+<body>
+    <section id="stopWatch">
+        <p id="timer"> Time : 00:00:00 </p> <button id="start"> Start </button>
+        <button id="stop"> Stop </button>
+        <p id="fulltime"> </p>
+    </section>
+
+    
+
+    <script>
+            function stopTime( ) {
+            if ( seconds !== 0 || minutes !== 0 || hours !== 0 ) {
+            var fulltime = document .getElementById( "fulltime" );
+            fulltime.style.display = "block"; 
+            var time = gethours + mins + secs; 
+            fulltime.innerHTML = 'Fulltime: ' + time;
+            seconds = 0; 
+            minutes = 0; 
+            hours = 0; 
+            secs = '0' + seconds; 
+            mins = '0' + minutes + ': '; 
+            gethours = '0' + hours + ': ';
+             var x = document.getElementById ("timer"); var stopTime = gethours + mins + secs; x.innerHTML = stopTime;
+             var showStart = document.getElementById ('start'); 
+             showStart.style.display = "inline-block"; 
+             var showStop = document.getElementById ("stop"); 
+             showStop.style.display = "inline-block";
+             clearTimeout( clearTime ); 
+             }
+             stopTime()
+             window.addEventListener( 'load', function ( ) { 
+             var stop = document.getElementById ("stop"); 
+             stop.addEventListener( 'click', stopTime ); 
+             });
+             }
+           </script>    
+</body>
+
+</html>
