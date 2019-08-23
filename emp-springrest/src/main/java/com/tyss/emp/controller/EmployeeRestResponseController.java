@@ -140,6 +140,17 @@ public class EmployeeRestResponseController {
 	@PutMapping(value="/updateEmployee", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public  EmployeeResponseBean updateEmployee(@RequestBody EmployeeInfoBean bean, HttpServletRequest request) {
 		EmployeeResponseBean response = new EmployeeResponseBean();
+		for (EmployeeAddressInfoBean addressInfoBean : bean.getAddressbean()) {
+			addressInfoBean.getAddressPkBean().setBean(bean);
+		}
+		for (EmployeeEducationInfoBean education : bean.getEducationbean()) {
+			education.getEducationbean().setBean(bean);
+		}
+		for (EmployeeExperienceInfoBean expbean : bean.getExperiencebean()) {
+			expbean.getExpbean().setBean(bean);
+		}
+		EmployeeOtherInfoBean otherinfo = bean.getOtherbean();
+		otherinfo.setBean(bean);
 		if(request.getSession(false)!=null) {
 			if( dao.updateEmployeeInfo(bean)) {
 				response.setStatusCode(201);

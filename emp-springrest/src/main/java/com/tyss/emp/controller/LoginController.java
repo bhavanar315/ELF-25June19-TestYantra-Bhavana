@@ -20,6 +20,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,16 +37,17 @@ import com.tyss.emp.dto.EmployeeResponseBean;
 @RestController
 @RequestMapping("/login")
 @PropertySource(PROP_FILENAME)
+@CrossOrigin(origins = "http://localhost:3000")
 public class LoginController {
 
 	@Autowired
 	@Qualifier(DB_INTERACTION_TYPE)
 	EmployeeDAO dao;
 
-	@GetMapping("/loginPage")
-	public String getForm() {
-		return VIEW_LOGIN_PAGE;
-	}
+//	@GetMapping("/loginPage")
+//	public String getForm() {
+//		return VIEW_LOGIN_PAGE;
+//	}
 	
 	@PostMapping(value="/login", produces =MediaType.APPLICATION_JSON_VALUE)
 	public EmployeeResponseBean login(int id, String password,
@@ -54,9 +56,9 @@ public class LoginController {
 		EmployeeInfoBean bean = dao.getEmployeeInfo(id);
 		EmployeeResponseBean response = new EmployeeResponseBean();
 		if(bean != null && bean.getPassword().equals(password)) {
-			response.setStatusCode(201);
-			response.setMessage("Sucessfully ");
-			response.setDescription(" employee logged Sucessfully");
+			response.setStatusCode(200);
+			response.setMessage("Sucessfully");
+			response.setDescription("employee logged Sucessfully");
 			response.setBeans(Arrays.asList(bean));
 			request.getSession().setAttribute("bean", bean);;
 		}else {
