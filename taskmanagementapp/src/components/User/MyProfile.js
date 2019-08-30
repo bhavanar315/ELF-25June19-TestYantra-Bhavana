@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import {Modal, Button} from 'react-bootstrap'
 import Navbarwithoutsearch from '../NavaBar/Navbarwithoutsearch';
+import Axios from 'axios';
 
 export default class MyProfile extends Component {
     constructor(props) {

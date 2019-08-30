@@ -62,7 +62,7 @@ export default class SearchNavabar extends Component {
                         </Form>
                         <Nav className="nav-link">
                             <NavLink className="nav-link" to="/CreateTask">Create Task</NavLink>                            
-                            <NavDropdown title={<Image src="/assets/male-1354358__340.png" roundedCircle />} id="basic-nav-dropdown">
+                            <NavDropdown title={<Image src="src/assets/images.jpeg" roundedCircle />} id="basic-nav-dropdown">
                                 <NavDropdown.Item variant="link" onClick={this.logout.bind(this)}>Logout</NavDropdown.Item>
                                 <NavLink className="nav-link" to="/myprofile">MyProfile</NavLink>
                             </NavDropdown>
