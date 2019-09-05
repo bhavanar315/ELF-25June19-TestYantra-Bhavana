@@ -19,7 +19,7 @@ export default class MyProfile extends Component {
             console.log('Response Object',response.data);
             if(response.data.message === "success"){
               localStorage.setItem("beans",JSON.stringify(response.data.beans));
-              //this.props.history.push('/allUsers');          
+                     
             }
       }).catch((error)=>{
              console.log('Error',error);
@@ -64,7 +64,7 @@ export default class MyProfile extends Component {
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone number</th>
-                                <th scope="col">User Type</th>
+                               
                             </tr>
                         </thead>
                         <tbody>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Nav, Navbar, NavDropdown, NavbarBrand} from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown, NavbarBrand, Image} from 'react-bootstrap'
 import { NavLink } from 'react-router-dom';
 import Axios from 'axios';
 
@@ -29,7 +29,7 @@ export default class Navbarwithoutsearch extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">                        
                         <Nav className="nav-link">               
-                            <NavDropdown  title="Dropdown" id="basic-nav-dropdown">
+                            <NavDropdown  title={<Image src="src/assets/images.jpeg" roundedCircle />} id="basic-nav-dropdown">
                                 <NavDropdown.Item variant="link" onClick={this.logout.bind(this)}>Logout</NavDropdown.Item>                                
                                 <NavLink className="nav-link" to="/myprofile">My Profile</NavLink>                                             
                             </NavDropdown>
