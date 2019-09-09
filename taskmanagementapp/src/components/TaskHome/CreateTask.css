@@ -1,0 +1,38 @@
+.header-pos {
+    margin-left: 28%;
+    margin-top: 2%;
+
+    width: 295px;
+  color: aliceblue;
+}
+.add-det {
+    margin-top: 2%;
+    margin-left: 14%;
+    padding-right: 155px;
+
+}
+.carduser{
+    margin-left: 354px;
+    height: 680px;
+    margin-top: 10px;
+    width: 844px;
+    padding-top: 19px;
+    background-color: rgba(0,0,0,0.5) !important;
+}
+.back{
+    /* background-image:url("background.jpeg") ;
+     */height:700px;
+    padding: 1px;
+
+}
+.submit-button{
+    margin-left: 128px;
+   
+}
+.input-group-text{
+    height: 38px;
+
+}
+textarea{
+    width: 229px;
+}

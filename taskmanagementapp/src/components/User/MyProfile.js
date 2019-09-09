@@ -1,41 +1,30 @@
 import React, { Component } from 'react'
-import {Modal, Button} from 'react-bootstrap'
-import Navbarwithoutsearch from '../NavaBar/Navbarwithoutsearch';
+import { Modal, Button, Card } from 'react-bootstrap'
 import Axios from 'axios';
+import NavbarforAll from '../NavaBar/NavbarforAll';
 
 export default class MyProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
             beans: [],
-            id: '',
-            show: false
+            Id: '',
+            show: false,
         }
-        
+
+        this.state.beans = JSON.parse(localStorage.getItem("beans"));
     }
 
-     componentDidMount(){
-         Axios.get('http://localhost:8080/getUsers').then((response)=>{
-            console.log('Response Object',response.data);
-            if(response.data.message === "success"){
-              localStorage.setItem("beans",JSON.stringify(response.data.beans));
-              //this.props.history.push('/allUsers');          
-            }
-      }).catch((error)=>{
-             console.log('Error',error);
-         })
-     }
 
-    
+
     editUser(bean) {
 
         this.setState({
-            firstName: bean.firstName,
-            lastName: bean.lastName,
+            empName: bean.empName,
             email: bean.email,
-            phoneNo: bean.phoneNo,
+            designation: bean.designation,
             show: !this.state.show,
-            userId: bean.userId
+            empId: bean.empId
         })
     }
     handleClose() {
@@ -45,7 +34,7 @@ export default class MyProfile extends Component {
         const beans = this.state;
         const userData = beans;
         console.log('AccountData', userData);
-        Axios.put('http://localhost:8080/updateUser' ,userData).then((response) => {
+        Axios.put('http://localhost:8080/taskmanagement/updateUser', userData).then((response) => {
             console.log('Updated Successfully');
             this.handleClose();
 
@@ -56,28 +45,26 @@ export default class MyProfile extends Component {
     render() {
         return (
             <div>
-                <Navbarwithoutsearch/>
+                <NavbarforAll />
                 <div>
+                   
                     <table className="table table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Phone number</th>
-                                <th scope="col">User Type</th>
+                                <th scope="col">Designation</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             {
                                 this.state.beans.map((bean) => {
-                                    return <tr key={bean.userId}>
-                                        <td>{bean.firstName}</td>
+                                    return <tr key={bean.empId}>
+                                        <td>{bean.empName}</td>
                                         <td>{bean.email}</td>
-                                        <td>{bean.phoneNo}</td>
-                                       
-                                        <td>
-                                            <button onClick={this.deleteUser.bind(this, bean)} className='btn btn-danger'>Delete</button>
-                                        </td>
+                                        <td>{bean.designation}</td>
+
                                         <td>
                                             <button onClick={this.editUser.bind(this, bean)} className='btn btn-success'>Edit</button>
                                         </td>
@@ -87,35 +74,34 @@ export default class MyProfile extends Component {
                             }
                         </tbody>
                     </table>
+
+
                     <div>
 
                         <Modal show={this.state.show} onHide={this.handleClose.bind(this)}>
                             <Modal.Header closeButton>
-                                <Modal.Title>Modal heading</Modal.Title>
+                                <Modal.Title>Update User Details</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
                                 <div className="row">
                                     <div className="col">
-                                        <input type="text" onChange={(event) => { this.setState({ firstName: event.target.value }) }}
-                                            value={this.state.firstName} className="form-control" readOnly/>
+                                        <input type="text" onChange={(event) => { this.setState({ empName: event.target.value }) }}
+                                            value={this.state.empName} className="form-control" readOnly />
                                     </div>
-                                    <div className="col">
-                                        <input type="text" onChange={(event) => { this.setState({ lastName: event.target.value }) }}
-                                            value={this.state.lastName} className="form-control" readOnly/>
-                                    </div>
+
                                     <div className="col">
                                         <input type="text" onChange={(event) => { this.setState({ email: event.target.value }) }}
-                                            value={this.state.email} className="form-control" readOnly/>
+                                            value={this.state.email} className="form-control" readOnly />
                                     </div>
                                 </div>
                                 <br />
                                 <div className="row">
                                     <div className="col">
-                                        <input type="number" onChange={(event) => { this.setState({ phoneNo: event.target.value }) }}
-                                            value={this.state.phoneNo} className="form-control" readOnly/>
+                                        <input type="text" onChange={(event) => { this.setState({ designation: event.target.value }) }}
+                                            value={this.state.designation} className="form-control" readOnly />
                                     </div>
-                                    
-                                    
+
+
                                 </div>
 
                             </Modal.Body>
