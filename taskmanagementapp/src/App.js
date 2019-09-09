@@ -1,4 +1,5 @@
 import React from 'react';
+import '@atlaskit/css-reset'
 
 import Navbar from './components/NavaBar/Router';
 
