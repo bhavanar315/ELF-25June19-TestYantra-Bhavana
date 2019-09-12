@@ -7,7 +7,7 @@ import Login from '../User/Login'
 import Tome from '../TaskHome/Tome';
 import Byme from '../TaskHome/Byme';
 import CompletedTask from '../TaskHome/CompletedTask';
-import TaskIndex from '../draganddrop/TaskIndex';
+
 
 
 export default function Navbar(props) {
@@ -21,7 +21,7 @@ export default function Navbar(props) {
         <Route path='/tome' component={Tome}></Route>
         <Route path='/byme' component={Byme}></Route>
         <Route path='/completedTask' component={CompletedTask}></Route>
-        <Route path='/TaskIndex' component={TaskIndex}></Route>
+        
       </Router>
     </div>
   )
