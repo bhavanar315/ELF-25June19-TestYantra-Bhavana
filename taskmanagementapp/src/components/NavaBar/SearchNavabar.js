@@ -16,11 +16,11 @@ class SearchNavabar extends Component {
     search(e) {
         e.preventDefault();
         console.log("this.state.search:", this.state.search);
-        Axios.get('http://localhost:8080/taskmanagement/searchAll?name=' + this.state.search).then((response) => {
+        Axios.get('http://localhost:8080/taskmanagement/searchAll?search=' + this.state.search).then((response) => {
             console.log('Response Object', response.data);
             if (response.data.message === "success") {
                 localStorage.setItem("beans", JSON.stringify(response.data.beans));
-                this.props.history.push('/allUsers');
+                this.props.history.push('/alltask');
 
             } else {
                 this.props.history.push('/taskhome');

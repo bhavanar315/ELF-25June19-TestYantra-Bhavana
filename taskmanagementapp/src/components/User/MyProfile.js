@@ -86,19 +86,19 @@ export default class MyProfile extends Component {
                                 <div className="row">
                                     <div className="col">
                                         <input type="text" onChange={(event) => { this.setState({ empName: event.target.value }) }}
-                                            value={this.state.empName} className="form-control" readOnly />
+                                            value={this.state.empName} className="form-control"  />
                                     </div>
 
                                     <div className="col">
                                         <input type="text" onChange={(event) => { this.setState({ email: event.target.value }) }}
-                                            value={this.state.email} className="form-control" readOnly />
+                                            value={this.state.email} className="form-control" />
                                     </div>
                                 </div>
                                 <br />
                                 <div className="row">
                                     <div className="col">
                                         <input type="text" onChange={(event) => { this.setState({ designation: event.target.value }) }}
-                                            value={this.state.designation} className="form-control" readOnly />
+                                            value={this.state.designation} className="form-control"  />
                                     </div>
 
 
@@ -107,11 +107,9 @@ export default class MyProfile extends Component {
                             </Modal.Body>
                             <Modal.Footer>
                                 <Button variant="secondary" onClick={this.handleClose.bind(this)}>
-                                    Close
-</Button>
+                                    Close</Button>
                                 <Button variant="primary" onClick={this.updateUserData.bind(this)}>
-                                    Save Changes
-</Button>
+                                    Save Changes</Button>
                             </Modal.Footer>
                         </Modal>
                     </div>

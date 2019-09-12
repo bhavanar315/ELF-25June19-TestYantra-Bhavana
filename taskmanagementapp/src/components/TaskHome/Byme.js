@@ -7,14 +7,15 @@ export default class Byme extends Component {
         super(props)
         this.state={
             Byme:[],
-            email:'ranji.pendli155@gmail.com'
+            Bybean:JSON.parse(localStorage.getItem("beans")),
         }
+       
     }
 
     componentDidMount(){
+        
         console.log('componentDidMount');
-        Axios.get('http://localhost:8080/taskmanagement/byme?email='+this.state.email
-           
+        Axios.get('http://localhost:8080/taskmanagement/byme?email='+this.state.Bybean.email
         ).then((response)=>{
             console.log('Response taskBean',response);
             if(response.data.message ==="Success"){
